@@ -1,0 +1,23 @@
+{
+  "name": "stay-home-backend",
+  "version": "1.0.0",
+  "description": "backend deploy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L4mb0/stay-home-backend.git"
+  },
+  "author": "batman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/L4mb0/stay-home-backend/issues"
+  },
+  "homepage": "https://github.com/L4mb0/stay-home-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
