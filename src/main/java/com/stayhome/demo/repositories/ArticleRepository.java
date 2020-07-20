@@ -16,14 +16,10 @@ import java.math.BigInteger;
 public interface ArticleRepository extends JpaRepository<Article, BigInteger> {
 
     @Transactional
-    @Modifying
-    @Query(value = "DELETE FROM app_article WHERE app_article.user_id = ?1", nativeQuery = true)
-    void delete_article_by_user_id(BigInteger user_id);
-
-    @Query(value = "SELECT COUNT(app_likesbyarticle.userid) FROM app_likesbyarticle WHERE app_likesbyarticle.articleid = :id AND app_likesbyarticle.lik=TRUE", nativeQuery = true)
+    @Query(value = "SELECT COUNT(app_likesbyarticle.user_id) FROM app_likesbyarticle WHERE app_likesbyarticle.article_id = :id AND app_likesbyarticle.lik=TRUE", nativeQuery = true)
     BigInteger CountLikes(@Param("id") BigInteger id);
 
-    @Query(value = "SELECT COUNT(app_likesbyarticle.userid) FROM app_likesbyarticle WHERE app_likesbyarticle.articleid = :id AND app_likesbyarticle.lik=FALSE", nativeQuery = true)
+    @Query(value = "SELECT COUNT(app_likesbyarticle.user_id) FROM app_likesbyarticle WHERE app_likesbyarticle.article_id = :id AND app_likesbyarticle.lik=FALSE", nativeQuery = true)
     BigInteger CountDislikes(@Param("id") BigInteger id);
 
     @Modifying

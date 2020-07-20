@@ -17,14 +17,14 @@ import java.util.List;
 @Repository
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public interface ArticlesPorPackRepository extends JpaRepository<ArticlesPorPack, Doublei> {
-    //List<ArticlesPorPack> findByDoubleiArticlepack(BigInteger articlepackid);
+
     @Transactional
     @Query(value = "SELECT * FROM app_articlesbypack WHERE app_articlesbypack.articlepack_id = :id", nativeQuery = true)
     List<ArticlesPorPack> findByDoubleiArticlepack(@Param("id") BigInteger id);
 
     @Modifying
-    @Query(value = "DELETE FROM app_articlesbypack WHERE app_articlesbypack.articlepack_id = ?1", nativeQuery = true)
-    void deleteArticlesPorPackByArticlepack_id(BigInteger articlepack_id);
+    @Query(value = "DELETE FROM app_articlesbypack WHERE app_articlesbypack.article_id = ?1", nativeQuery = true)
+    void deleteArticlesPorPackByArticlepack_id(BigInteger article_id);
 
 
 }

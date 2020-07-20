@@ -36,7 +36,7 @@ public class ArticleController {
         Article article = business.storeFile(file,id);
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
-                .path(article.getUser() +"/"+ article.getTitle())
+                .path(article.getArticle_id() +"/")
                 .toUriString();
 
         return new UploadArticleResponse(article.getTitle(), fileDownloadUri,
@@ -71,10 +71,6 @@ public class ArticleController {
     public void delete(@PathVariable BigInteger article_id){
         business.delete(article_id);
     }
-
-
-    @DeleteMapping("/articlesUserId/{user_id}")
-    public void delete_by_User_id(@PathVariable BigInteger user_id){business.delete_by_User_id(user_id);}
 
 
     @GetMapping("/downloadFile/{article_id}")
